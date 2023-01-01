@@ -1,0 +1,5 @@
+Thu Dec 15 2022 11:00:16 GMT+0530 (India Standard Time) - CastError: Cast to Number failed for value "tom123@gmail.com" (type string) at path "bookingId" for model "Flight"
+    at model.Query.exec (D:\capstone-Projects-lex\infyairlinesadvancedmaster1645166444324\infyairlines-advanced-master\InfyAirlines-toTrainee\infy-airlines-ws\node_modules\mongoose\lib\query.js:4498:21)
+    at model.Query.Query.then (D:\capstone-Projects-lex\infyairlinesadvancedmaster1645166444324\infyairlines-advanced-master\InfyAirlines-toTrainee\infy-airlines-ws\node_modules\mongoose\lib\query.js:4592:15)
+    at D:\capstone-Projects-lex\infyairlinesadvancedmaster1645166444324\infyairlines-advanced-master\InfyAirlines-toTrainee\infy-airlines-ws\src\model\user.js:101:81
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
