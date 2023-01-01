@@ -85,7 +85,7 @@ let flightData = [
                 arrivalTime: new Date("01-01-01 08:45").toLocaleTimeString(),
                 seatsAvailable: 96,
                 fare: [{ travelClass: "Economy", baseFare: 4485 }, { travelClass: 'Business', baseFare: 9485 }],
-                stops: 1,
+                stops: 0,
                 bookings: [
                     {
                         emailId: "tom123@gmail.com",
@@ -144,7 +144,7 @@ let flightData = [
                 arrivalTime: new Date("01-01-01 08:50").toLocaleTimeString(),
                 seatsAvailable: 4,
                 fare: [{ travelClass: "Economy", baseFare: 3988 }, { travelClass: 'Business', baseFare: 9999 }],
-                stops: 2,
+                stops: 0,
                 bookings: [
                     {
                         emailId: "John94@gmail.com",
@@ -197,7 +197,7 @@ let flightData = [
                 arrivalTime: new Date("01-01-01 13:55").toLocaleTimeString(),
                 seatsAvailable: 23,
                 fare: [{ travelClass: "Economy", baseFare: 3587 }, { travelClass: 'Business', baseFare: 9649 }],
-                stops: 1,
+                stops: 0,
                 bookings: [
                     {
                         emailId: "maria10@gmail.com",
@@ -249,7 +249,7 @@ let flightData = [
                 arrivalTime: new Date("01-01-01 08:50").toLocaleTimeString(),
                 seatsAvailable: 10,
                 fare: [{ travelClass: "Economy", baseFare: 3988 }, { travelClass: 'Business', baseFare: 9999 }],
-                stops: 1,
+                stops: 0,
                 bookings: []
             }
         ]

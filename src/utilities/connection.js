@@ -87,10 +87,7 @@ let flightDetailsSchema = mongoose.Schema({
     stops: {
         type: Number,
         required: true,
-        enum: {
-            values: [0, 1, 2, 3],
-            message: "A flight cannot have more than 3 intermediate Stops"
-        }
+        enum: [0,1,2,3]
     },
     bookings: { type: [bookingsSchema], required: true }
 })
@@ -107,7 +104,7 @@ modelObj = {}
 
 
 modelObj.getFlightCollection = () => {
-    return mongoose.connect("mongodb://localhost:27017/InfyAirlinesDB", { useNewUrlParser: true, useUnifiedTopology:true }).then(database => {
+    return mongoose.connect(process.env.CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology:true }).then(database => {
         return mongoose.model('Flight', flightSchema)
     }).catch(error => {
         let err = new Error("Could Not Connect to Flight Database");
@@ -117,7 +114,7 @@ modelObj.getFlightCollection = () => {
 }
 
 modelObj.getUserCollection = () => {
-    return mongoose.connect("mongodb://localhost:27017/InfyAirlinesDB", { useNewUrlParser: true, useUnifiedTopology:true }).then(database => {
+    return mongoose.connect(process.env.CONNECTION_STRING , { useNewUrlParser: true, useUnifiedTopology:true }).then(database => {
         return mongoose.model('Users', userSchema)
     }).catch(error => {
         let err = new Error("Could Not Connect to User Database");

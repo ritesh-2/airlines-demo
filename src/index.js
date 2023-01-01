@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+require('dotenv').config();
 const router = require('./routes/routing');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -21,9 +22,6 @@ app.get('/setupdb', (req, res, next) => {
 
 app.use(errorLogger);
 
-// app.listen(process.env.PORT || 4000);
-// console.log('server started at ' + process.env.PORT || 4000);
+app.listen(process.env.PORT);
+console.log('server started at ' + process.env.PORT);
 
-
-app.listen(4000);
-console.log('server started at ' + 4000);
