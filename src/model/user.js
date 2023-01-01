@@ -1,4 +1,5 @@
 const dbModel = require('../utilities/connection');
+const { logInfo } = require('../utilities/consoleLogger');
 
 const infyAirlinesDb = {}
 
@@ -21,6 +22,7 @@ infyAirlinesDb.findSrcDest = () => {
 }
 
 infyAirlinesDb.showFlights = (source, destination, travellersCount, nonStopFlights) => {
+    logInfo("Entered infyAirlinesDb.showFlights")
     return dbModel.getFlightCollection().then(flightModel => {
         if (nonStopFlights == "false") {
             return flightModel.aggregate([

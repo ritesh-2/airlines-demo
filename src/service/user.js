@@ -1,9 +1,11 @@
 const infyAirlinesDb = require('../model/user');
+const { logInfo } = require('../utilities/consoleLogger');
 
 const infyAirlinesServ = {}
 
 
-infyAirlinesServ.login = (userData) => {
+infyAirlinesServ.login = (userData,traceId) => {
+    logInfo(traceId,"Entered infyAirlinesServ.login");
     return infyAirlinesDb.checkUser(userData.emailId).then(authenticatedUser => {
         if (!authenticatedUser) {
             let err = new Error(`${userData.emailId} is not registered`);
@@ -21,7 +23,8 @@ infyAirlinesServ.login = (userData) => {
     })
 }
 
-infyAirlinesServ.findSrcDest = () => {
+infyAirlinesServ.findSrcDest = (traceId) => {
+    logInfo(traceId,"Entered infyAirlinesServ.findSrcDest");
     return infyAirlinesDb.findSrcDest().then(srcDestData => {
         if (srcDestData) {
             let sourceArray = srcDestData.map(element => element.source)
@@ -37,7 +40,8 @@ infyAirlinesServ.findSrcDest = () => {
     })
 }
 
-infyAirlinesServ.showFlights = (source, destination, travellersCount, nonStopFlights) => {
+infyAirlinesServ.showFlights = (source, destination, travellersCount, nonStopFlights,traceId) => {
+    logInfo(traceId,"Entered infyAirlinesServ.showFlights");
     return infyAirlinesDb.showFlights(source, destination, travellersCount, nonStopFlights).then(availableFlights => {
         if (availableFlights) return availableFlights
         else {
@@ -48,20 +52,23 @@ infyAirlinesServ.showFlights = (source, destination, travellersCount, nonStopFli
     })
 }
 
-infyAirlinesServ.bookFlight = (tripData, flightId) => {
+infyAirlinesServ.bookFlight = (tripData, flightId, traceId) => {
+    logInfo(traceId,"Entered infyAirlinesServ.bookFlight");
     return infyAirlinesDb.bookFlight(tripData, flightId).then(response => {
         return response
     })
 }
 
 
-infyAirlinesServ.fetchBookings = (emailId) => {
+infyAirlinesServ.fetchBookings = (emailId,traceId) => {
+    logInfo(traceId,"Entered infyAirlinesServ.fetchBookings");
     return infyAirlinesDb.fetchBookings(emailId).then(bookingData => {
         return bookingData
     })
 }
 
-infyAirlinesServ.fetchBookingDetails = (bookingId) => {
+infyAirlinesServ.fetchBookingDetails = (bookingId,traceId) => {
+    logInfo(traceId,"Entered infyAirlinesServ.fetchBookingDetails");
     return infyAirlinesDb.fetchBookingDetails(bookingId).then(bookingData => {
         if (bookingData) {
             let newBookingObj = {};
@@ -90,7 +97,8 @@ infyAirlinesServ.fetchBookingDetails = (bookingId) => {
 }
 
 
-infyAirlinesServ.bookFlight = (tripData, flightId) => {
+infyAirlinesServ.bookFlight = (tripData, flightId,traceId) => {
+    logInfo(traceId,"Entered infyAirlinesServ.bookFlight");
     return infyAirlinesDb.bookFlight(tripData, flightId).then(bookingId => {
         if (bookingId) return bookingId
         else {
@@ -100,8 +108,5 @@ infyAirlinesServ.bookFlight = (tripData, flightId) => {
         }
     })
 }
-
-
-
 
 module.exports = infyAirlinesServ;
