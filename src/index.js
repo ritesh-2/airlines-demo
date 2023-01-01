@@ -21,7 +21,7 @@ app.get('/setupdb', (req, res, next) => {
         res.json(data)
     }).catch(err => next(err))
 })
-
+// test commit
 app.use(errorLogger);
 
 app.listen(process.env.PORT);
